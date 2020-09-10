@@ -64,7 +64,7 @@ extension EpisodesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
         //pagination
-        if indexPath.row > evm.getArrayCount() - 2{
+        if indexPath.row > evm.getArrayCount() - 2 && checkReachable(){
             self.evm.pageNum += 1
             getDataFromAPI()
         }
