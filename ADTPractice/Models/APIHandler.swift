@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import SystemConfiguration
 
 typealias CompletionHandler = ((Any?, URLResponse?, Error?)->Void)
 
+//MARK:-APIHandler
 class APIHandler {
     var urlSession : URLSession
     //initialize session
@@ -17,7 +19,6 @@ class APIHandler {
         self.urlSession = urlSession
     }
     
-    //get Data using Codable
     func getData<T:Codable>(_ urlString: String,_ typeWeNeed: T.Type, completionHandler: @escaping CompletionHandler ) {
         guard let url = URL(string: urlString) else {completionHandler(nil,nil,nil); return}
         
@@ -26,7 +27,6 @@ class APIHandler {
                 do {
                     let model = try JSONDecoder().decode(typeWeNeed.self, from: data!)
                     completionHandler(model,response,nil)
-                    
                 }catch{
                     completionHandler(nil,response,error)
                 }
@@ -37,3 +37,11 @@ class APIHandler {
     }
     
 }
+
+
+
+
+// For core data
+//                    if let newModel = model as? Page{
+//                        DatabaseManager.addEpisodesToCoreData((newModel.results)!)
+//                    }

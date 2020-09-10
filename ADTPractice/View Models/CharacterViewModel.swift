@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK:- CharacterViewModel
 class CharacterViewModel {
     private lazy var handler = APIHandler(urlSession: URLSession.shared)
     private var charArr : [Characters] = [Characters]()
@@ -16,9 +17,9 @@ class CharacterViewModel {
     //get Characters from the given URL list
     func getCharacters(_ urlString: String, completionHandler: @escaping CompletionHandler) {
         handler.getData(urlString, Characters.self) { (data, response, error) in
-            let info = data as? Characters
-            self.addToArray(info)
-            
+            let charInfo = data as? Characters
+            self.addToArray(charInfo)
+            completionHandler(charInfo?.name, response,nil)
         }
     }
     

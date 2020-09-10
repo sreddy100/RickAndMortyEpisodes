@@ -8,7 +8,33 @@
 
 import Foundation
 
+//MARK:- Constants
 struct Constants {
     static let DomainURL =  "https://rickandmortyapi.com/api/episode/"
     static let page = "?page="
+    static let cell = "cell"
+    static let EpisodesPageTitle = "Rick and Morty Episodes"
+    static let notAvailable = "N/A"
+    static let placeholder = "placeholder"
+    
+    struct vc {
+        static let episodesVC = "EpisodesViewController"
+        static let characterVC = "CharacterViewController"
+        static let characterDetailVC = "CharacterDetailViewController"
+        static let main = "Main"
+    }
+    
+    struct DatabaseManager {
+        static let projectName = "ADTPractice"
+        static let episodeEntity = "EpisodeEntity"
+        static let dataSaved = "Data Saved to Context"
+    }
+    
+    struct DatabaseKey {
+        
+    }
+    
+    struct CustomError {
+        
+    }
 }

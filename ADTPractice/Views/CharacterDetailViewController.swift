@@ -9,34 +9,36 @@
 import UIKit
 import SDWebImage
 
-class CharacterDetailViewController: UIViewController {
+//MARK:- Character Detail View Controller
+class CharacterDetailViewController: UIViewController, Storyboarded {
+    
+    @IBOutlet weak var characterName: UILabel!
+    @IBOutlet weak var characterImageView: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var speciesLabel: UILabel!
+    weak var coordinator : MainCoordinator?
 
-       @IBOutlet weak var characterName: UILabel!
-       @IBOutlet weak var characterImageView: UIImageView!
-       @IBOutlet weak var statusLabel: UILabel!
-       @IBOutlet weak var genderLabel: UILabel!
-       @IBOutlet weak var speciesLabel: UILabel!
-       
-       var character : Characters?
-       
-       override func viewDidLoad() {
-           super.viewDidLoad()
-           setCharacterValues()
-           
-       }
-       
-       func setCharacterValues() {
+    var character : Characters?
+    
+    //MARK:- View Controller LifeCycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setCharacterValues()
         
-           characterName.text = character?.name
-           genderLabel.text = character?.gender
-           speciesLabel.text = character?.species
-           statusLabel.text = character?.status
-           
-           if let urlImage = character?.image {
-               characterImageView.sd_setImage(with: URL(string: urlImage), placeholderImage: UIImage(named: "placeholder"))
-
-           }
-
-           
-       }
+    }
+    
+    func setCharacterValues() {
+        characterName.text = character?.name
+        genderLabel.text = character?.gender
+        speciesLabel.text = character?.species
+        statusLabel.text = character?.status
+        
+        if let urlImage = character?.image {
+            characterImageView.sd_setImage(with: URL(string: urlImage), placeholderImage: UIImage(named: Constants.placeholder))
+            
+        }
+        
+        
+    }
 }
