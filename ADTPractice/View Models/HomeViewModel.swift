@@ -8,10 +8,11 @@
 
 import Foundation
 
-class HomeViewModel {
+class EpisodesViewModel {
     private lazy var handler = APIHandler(urlSession: URLSession.shared)
     var episodeArray : [Episodes] = [Episodes]()
     private var error : Error?
+    var pageNum = 1
     
     func getData<T:Codable>(_ pageNum: Int,_ typeWeNeed: T.Type, completionHandler: @escaping CompletionHandler) {
         handler.getData(Constants.DomainURL + Constants.page + String(pageNum), Page.self) { (data, response, error) in
