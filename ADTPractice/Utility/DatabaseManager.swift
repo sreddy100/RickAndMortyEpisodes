@@ -149,8 +149,8 @@ class DatabaseManager{
             let entity = NSEntityDescription.entity(forEntityName: Constants.DatabaseManager.episodeEntity, in: DatabaseManager.getContext())
             let newShow = NSManagedObject(entity: entity!, insertInto: DatabaseManager.getContext())
 
-            // Create a unique ID for the Show.
-            let uuid = UUID()
+//            // Create a unique ID for the Show.
+//            let uuid = UUID()
             // Set the data to the entity
             newShow.setValue(show.name, forKey: "name")
             newShow.setValue(show.airDate, forKey: "airDate")
@@ -158,7 +158,6 @@ class DatabaseManager{
             newShow.setValue(show.characters, forKey: "characters")
             newShow.setValue(show.episode, forKey: "episode")
             newShow.setValue(show.id, forKey: "id")
-            newShow.setValue(uuid.uuidString, forKey: "uuid")
             
             DatabaseManager.saveContext()
         }

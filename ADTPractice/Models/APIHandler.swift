@@ -26,6 +26,10 @@ class APIHandler {
             if data != nil {
                 do {
                     let model = try JSONDecoder().decode(typeWeNeed.self, from: data!)
+                    //For core data
+                    if let newModel = model as? Page{
+                        DatabaseManager.addEpisodesToCoreData((newModel.results)!)
+                    }
                     completionHandler(model,response,nil)
                 }catch{
                     completionHandler(nil,response,error)
@@ -41,7 +45,4 @@ class APIHandler {
 
 
 
-// For core data
-//                    if let newModel = model as? Page{
-//                        DatabaseManager.addEpisodesToCoreData((newModel.results)!)
-//                    }
+

@@ -8,9 +8,8 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="EpisodesEntity" positionX="-45" positionY="0" width="128" height="163"/>
+        <element name="EpisodesEntity" positionX="-45" positionY="0" width="128" height="148"/>
     </elements>
 </model>

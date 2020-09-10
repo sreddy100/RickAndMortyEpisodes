@@ -26,7 +26,7 @@ struct Constants {
     
     struct DatabaseManager {
         static let projectName = "ADTPractice"
-        static let episodeEntity = "EpisodeEntity"
+        static let episodeEntity = "EpisodesEntity"
         static let dataSaved = "Data Saved to Context"
     }
     
