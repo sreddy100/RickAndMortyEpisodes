@@ -13,7 +13,7 @@ import CoreData
 
 //MARK:- EpisodesViewController
 class EpisodesViewController: UIViewController, Storyboarded {
-    private let reachability = SCNetworkReachabilityCreateWithName(nil, "www.google.com")
+    private let reachability = SCNetworkReachabilityCreateWithName(nil, Constants.DatabaseKey.website)
     var evm = EpisodesViewModel()
     weak var coordinator : MainCoordinator?
     @IBOutlet weak var tableView: UITableView!
@@ -43,9 +43,9 @@ extension EpisodesViewController: UITableViewDataSource {
             let episodeObj = evm.getIndexOfArray(indexPath.row)
             cell.textLabel?.text = episodeObj.name
         }else{
-            cell.textLabel?.text = offlineEpisodes[indexPath.row].value(forKey: "name") as? String
+            cell.textLabel?.text = offlineEpisodes[indexPath.row].value(forKey: Constants.DatabaseKey.name
+                ) as? String
         }
-        
         return cell
     }
 }
@@ -79,7 +79,6 @@ extension EpisodesViewController {
         
         let managedContext =
             DatabaseManager.persistentContainer.viewContext
-        
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: Constants.DatabaseManager.episodeEntity)
         

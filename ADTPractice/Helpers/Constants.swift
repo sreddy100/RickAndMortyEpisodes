@@ -31,7 +31,8 @@ struct Constants {
     }
     
     struct DatabaseKey {
-        
+        static let name = "name"
+        static let website = "www.google.com"
     }
     
     struct CustomError {
