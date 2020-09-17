@@ -23,7 +23,6 @@ class CharacterViewController: UIViewController, Storyboarded {
         navigationItem.title = results?.name
         nameLabel.text = results?.airDate
         episodeLabel.text = results?.episode
-        
     }
 }
 

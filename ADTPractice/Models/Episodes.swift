@@ -21,7 +21,7 @@ struct Info: Codable {
 }
 
 // MARK: - Episodes
-struct Episodes: Codable {
+struct Episodes: Codable, Equatable {
     let id: Int?
     let name, airDate, episode: String?
     let characters: [String]?

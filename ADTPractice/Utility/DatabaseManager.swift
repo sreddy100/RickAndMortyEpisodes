@@ -6,6 +6,7 @@
 //  Copyright © 2020 S Reddy. All rights reserved.
 //
 
+
 import Foundation
 import CoreData
 
@@ -161,6 +162,26 @@ class DatabaseManager{
             
             DatabaseManager.saveContext()
         }
+    }
+    
+    class func addCharactersToCoreData(chars: Characters) {
+        let entity = NSEntityDescription.entity(forEntityName: Constants.DatabaseManager.charEntity , in: DatabaseManager.getContext())
+        let newCharacter = NSManagedObject(entity: entity!, insertInto: DatabaseManager.getContext())
+        
+        newCharacter.setValue(chars.created, forKey: "created")
+        newCharacter.setValue(chars.episode, forKey: "episode")
+        newCharacter.setValue(chars.gender, forKey: "gender")
+        newCharacter.setValue(chars.id, forKey: "id")
+        newCharacter.setValue(chars.image, forKey: "image")
+        newCharacter.setValue(chars.location, forKey: "location")
+        newCharacter.setValue(chars.name, forKey: "name")
+        newCharacter.setValue(chars.species, forKey: "species")
+        newCharacter.setValue(chars.status, forKey: "status")
+        newCharacter.setValue(chars.type, forKey: "type")
+        newCharacter.setValue(chars.url, forKey: "url")
+        
+        DatabaseManager.saveContext()
+
     }
 }
 

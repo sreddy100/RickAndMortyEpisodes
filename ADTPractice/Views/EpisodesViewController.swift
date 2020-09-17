@@ -76,7 +76,6 @@ extension EpisodesViewController: UITableViewDelegate {
 extension EpisodesViewController {
     
     func getFromCoreData() {
-        
         let managedContext =
             DatabaseManager.persistentContainer.viewContext
         let fetchRequest =
@@ -112,7 +111,6 @@ extension EpisodesViewController {
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)
         let canConnectAutomatically = flags.contains(.connectionOnDemand) || flags.contains(.connectionOnTraffic)
-        
         let canConnectWithoutUserInteraction = canConnectAutomatically && !flags.contains(.interventionRequired)
         return isReachable && (!needsConnection || canConnectWithoutUserInteraction)
     }
